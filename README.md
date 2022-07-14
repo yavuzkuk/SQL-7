@@ -3,7 +3,7 @@
 - film tablosunda bulunan filmleri rating değerlerine göre gruplayınız.
 
 `
-SELECT rating ,COUNT(*) FROM film
+SELECT rating FROM film
 GROUP BY rating
 `
 
@@ -11,16 +11,16 @@ GROUP BY rating
 
 
 `
-SELECT replacement_cost , SUM(replacement_cost) FROM film
+SELECT replacement_cost , COUNT(replacement_cost) FROM film
 GROUP BY replacement_cost
-HAVING SUM(replacement_cost) > 50
+HAVING COUNT(replacement_cost) > 50
 `
 
 -  customer tablosunda bulunan store_id değerlerine karşılık gelen müşteri sayılarını nelerdir
 
 
 `
-SELECT store_id ,SUM(store_id) FROM customer
+SELECT store_id ,COUNT(store_id) FROM customer
 GROUP BY store_id
 `
 
@@ -28,6 +28,7 @@ GROUP BY store_id
 - city tablosunda bulunan şehir verilerini country_id sütununa göre gruplandırdıktan sonra en fazla şehir sayısı barındıran country_id bilgisini ve şehir sayısını paylaşınız
 
 `
-SELECT country_id ,SUM(country_id) FROM city
+SELECT country_id ,COUNT(country_id) FROM city
 GROUP BY country_id
+ORDER BY COUNT(*) DESC
 `
